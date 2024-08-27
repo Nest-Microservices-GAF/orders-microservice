@@ -30,10 +30,10 @@ model Order {
   paidAt         DateTime?
   stripeChargeId String?
 
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  OrderItem OrderItem[]
+  OrderItem    OrderItem[]
   OrderReceipt OrderReceipt?
 }
 
@@ -47,14 +47,15 @@ model OrderItem {
   orderId String?
 }
 
-model OrderReceipt{
+model OrderReceipt {
   id String @id @default(uuid())
 
-  order Order @relation(fields: [orderId], references: [id])
+  order   Order  @relation(fields: [orderId], references: [id])
   orderId String @unique
 
-  recipeUrl String
+  receiptUrl String
 
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
 }
