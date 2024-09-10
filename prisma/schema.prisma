@@ -30,7 +30,7 @@ model Order {
   paidAt         DateTime?
   stripeChargeId String?
 
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) 
   updatedAt DateTime @updatedAt
 
   OrderItem    OrderItem[]
